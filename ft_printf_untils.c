@@ -6,35 +6,53 @@
 /*   By: jlong <jlong@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 18:08:25 by jlong             #+#    #+#             */
-/*   Updated: 2021/07/16 09:41:14 by jlong            ###   ########.fr       */
+/*   Updated: 2021/07/20 18:39:28 by jlong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-size_t	ft_strlen(const char *s)
+static	int	ft_len(int n)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	if (n >= 0 && n <= 9)
+		return (1);
+	while (n != 0)
 	{
 		i++;
+		n = n / 10;
 	}
 	return (i);
 }
 
-void	ft_putstr(const char *str)
+void	ft_putnbr(long long nbr, t_format *format_len)
 {
-	while (*str)
+	if (nbr < 0)
 	{
-		write(1, str++, 1);
-
+		ft_putchar('-', format_len);
+		ft_putnbr(nbr * -1, format_len);
+	}
+	else if (nbr >= 0 && nbr <= 9)
+		ft_putchar('0' + nbr, format_len);
+	else
+	{
+		ft_putnbr(nbr / 10, format_len);
+		ft_putnbr(nbr % 10, format_len);
 	}
 }
 
-void	ft_putchar(char c, t_format* format_len)
+void	ft_conver_x(unsigned long nbr, t_format *format_len)
 {
-	write(1, &c ,1);
-	format_len->size = format_len->size +1;
+	char	*base;
+
+	base = "0123456789abcdef";
+	 if (nbr >= 0 && nbr <= 15)
+		ft_putchar(nbr[base], format_len);
+	else
+	{
+		ft_conver_x(nbr / 16, format_len);
+		ft_conver_x(nbr % 16, format_len);
+	}
 }
