@@ -1,6 +1,6 @@
-#include "libftprintf.h"
-#include <unistd.h>
 
+
+#include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
@@ -8,7 +8,9 @@
 #include <wchar.h>
 #include <stdio.h>
 
-int	main(void)
+#include "printfh.h"
+
+int	main()
 {
 	int nbr1, nbr2;
 	nbr1 = 0;

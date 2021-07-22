@@ -6,11 +6,11 @@
 /*   By: jlong <jlong@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 14:41:44 by jlong             #+#    #+#             */
-/*   Updated: 2021/07/20 16:51:32 by jlong            ###   ########.fr       */
+/*   Updated: 2021/07/22 15:14:20 by jlong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "printfh.h"
 
 void	ft_check_conv(va_list ap, const char *str, t_format *format_len)
 {
@@ -41,11 +41,11 @@ int	ft_readerprintf(va_list ap, const char *format, t_format *format_len)
 		if (*format == '%')
 		{
 			ft_check_conv(ap, format, format_len);
-			*format++;
+			format++;
 		}
 		else if (*format - 1 != '%')
 			ft_putchar(*format, format_len);
-		*format++;
+		format++;
 	}
 	return (format_len->size);
 }

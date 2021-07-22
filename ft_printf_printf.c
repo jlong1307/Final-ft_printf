@@ -6,11 +6,11 @@
 /*   By: jlong <jlong@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 10:17:39 by jlong             #+#    #+#             */
-/*   Updated: 2021/07/20 18:39:26 by jlong            ###   ########.fr       */
+/*   Updated: 2021/07/22 14:54:35 by jlong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "printfh.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -38,7 +38,7 @@ void	ft_putchar(char c, t_format *format_len)
 
 void	print_char(va_list ap, t_format *format_len)
 {
-	unsigned int	x;
+	unsigned char	x;
 
 	x = va_arg(ap, int);
 	ft_putchar(x, format_len);
@@ -51,7 +51,7 @@ void	print_str(va_list ap, t_format *format_len)
 	char	*tmp;
 
 	i = 0;
-	tmp = va_arg(ap, char *);
+	tmp = (char *)va_arg(ap, const char *);
 	ret = ft_strlen(tmp);
 	while (i < ret)
 	{

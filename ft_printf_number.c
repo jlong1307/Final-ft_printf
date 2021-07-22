@@ -6,11 +6,11 @@
 /*   By: jlong <jlong@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 18:37:41 by jlong             #+#    #+#             */
-/*   Updated: 2021/07/20 18:37:55 by jlong            ###   ########.fr       */
+/*   Updated: 2021/07/22 14:54:34 by jlong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "printfh.h"
 
 void	print_int(va_list ap, t_format *format_len)
 {
@@ -25,7 +25,7 @@ void	printf_u(va_list ap, t_format *format_len)
 	unsigned long	nbrconv;
 
 	nbrconv = va_arg(ap, unsigned int);
-	if (nbrconv >= 0 && nbrconv <= 9)
+	if (nbrconv <= 9)
 		ft_putchar('0' + nbrconv, format_len);
 	else
 	{

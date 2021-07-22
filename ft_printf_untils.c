@@ -6,26 +6,11 @@
 /*   By: jlong <jlong@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 18:08:25 by jlong             #+#    #+#             */
-/*   Updated: 2021/07/20 18:39:28 by jlong            ###   ########.fr       */
+/*   Updated: 2021/07/22 14:54:37 by jlong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-
-static	int	ft_len(int n)
-{
-	int	i;
-
-	i = 0;
-	if (n >= 0 && n <= 9)
-		return (1);
-	while (n != 0)
-	{
-		i++;
-		n = n / 10;
-	}
-	return (i);
-}
+#include "printfh.h"
 
 void	ft_putnbr(long long nbr, t_format *format_len)
 {
@@ -48,7 +33,7 @@ void	ft_conver_x(unsigned long nbr, t_format *format_len)
 	char	*base;
 
 	base = "0123456789abcdef";
-	 if (nbr >= 0 && nbr <= 15)
+	 if (nbr <= 15)
 		ft_putchar(nbr[base], format_len);
 	else
 	{
