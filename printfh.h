@@ -6,7 +6,7 @@
 /*   By: jlong <jlong@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/07 10:09:11 by jlong             #+#    #+#             */
-/*   Updated: 2021/07/22 15:33:30 by jlong            ###   ########.fr       */
+/*   Updated: 2021/07/25 14:40:26 by jlong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_flags
 int				ft_printf(const char *format, ...);
 size_t			ft_strlen(const char *s);
 size_t			ft_putnstr(const char *str, size_t len);
+void			ft_conver_X(unsigned long nbr, t_format *format_len);
 void			ft_conver_x(unsigned long nbr, t_format *format_len);
 void			print_int(va_list ap, t_format *format_len);
 void			print_int(va_list ap, t_format *format_len);
@@ -42,6 +43,7 @@ void			ft_putnbr(long long nb, t_format *format_len);
 void			printf_u(va_list ap, t_format *format_len);
 void			printf_pointer(va_list ap, t_format *format_len);
 void			printf_x(va_list ap, t_format *format_len);
+void			printf_X(va_list ap, t_format *format_len);
 int				ft_readerprintf(va_list ap, const char *format,
 					t_format *format_len);
 void			ft_putchar(char c, t_format *format_len);

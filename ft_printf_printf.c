@@ -6,7 +6,7 @@
 /*   By: jlong <jlong@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 10:17:39 by jlong             #+#    #+#             */
-/*   Updated: 2021/07/22 14:54:35 by jlong            ###   ########.fr       */
+/*   Updated: 2021/07/25 14:41:23 by jlong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-void	ft_putstr(const char *str)
+void	ft_putstr(const char *str, t_format *format_len)
 {
-	while (*str)
-		write(1, str++, 1);
+	while (*str != '\0')
+		ft_putchar(*str++, format_len);
 }
 
 void	ft_putchar(char c, t_format *format_len)
 {
 	write(1, &c, 1);
-	format_len->size = format_len->size +1;
+	format_len->size = format_len->size + 1;
 }
 
 void	print_char(va_list ap, t_format *format_len)
@@ -52,9 +52,12 @@ void	print_str(va_list ap, t_format *format_len)
 
 	i = 0;
 	tmp = (char *)va_arg(ap, const char *);
-	ret = ft_strlen(tmp);
-	while (i < ret)
+	if (tmp == NULL)
+		ft_putstr("(null)", format_len);
+	else
 	{
-		ft_putchar(tmp[i++], format_len);
+		ret = ft_strlen(tmp);
+		while (i < ret)
+			ft_putchar(tmp[i++], format_len);
 	}
 }

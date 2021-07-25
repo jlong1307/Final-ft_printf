@@ -29,9 +29,12 @@ int	main()
 	//TEST POUR s et c
 	printf("test pour string\n");
 	char chaine[] = "j'aime les pommes et les banane";
-	int nbr5, nbr6;
+	int nbr5, nbr6, toto, totoo;
 	nbr5 = ft_printf("mon printf = %s hello %c\n", chaine, 'a');
 	nbr6 = printf("vrai printf =%s hello %c\n", chaine, 'a');
+	toto = ft_printf("mon printf test avec NULL en paramètre %s \n", NULL);
+	totoo = printf("vra printf test avec NULL en paramètre %s \n", NULL);
+	ft_printf("%i----%i \ntest avec NULL",toto, totoo);
 	printf("%i---%i\n", nbr5, nbr6);
 	//TEST POUR i et d
 	printf("test pour l int en décimal signé i et d\n");
@@ -50,8 +53,8 @@ int	main()
 	printf("%i---%i\n", nbr22, nbr23);
 	//TEST POUR x
 	printf("test pour x\n");
-	unsigned int nbr66 = 0;
-	while (nbr66 <= 100)
+	unsigned int nbr66 = 68;
+	while (nbr66 <= 75)
 	{
 		printf("le nombre en décimal : %i et en hexa %x \n", nbr66, nbr66);
 		printf("mon printf----------------------------\n");
@@ -59,10 +62,19 @@ int	main()
 		printf(" \n");
 		nbr66++;
 	}
-
-	//TEST pour 
+	//test pour X
+	printf("test pour X\n");
+	unsigned int nbrnbr = 68;
+	while (nbrnbr <= 75)
+	{
+		printf("le nombre en décimal : %i et en hexa %X \n", nbrnbr, nbrnbr);
+		printf("mon printf--------------\n");
+		ft_printf("le nombre en décimal : %i et en hexa %X \n", nbrnbr, nbrnbr);
+		printf(" \n");
+		nbrnbr++;
+	}
+	//TEST pour p
 	printf("test pour p\n");
-
 	int var = 78;
 	int *lol = &var;
 	printf("Adresse de ma variable %p\n", lol);

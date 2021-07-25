@@ -6,7 +6,7 @@
 /*   By: jlong <jlong@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/15 18:08:25 by jlong             #+#    #+#             */
-/*   Updated: 2021/07/22 14:54:37 by jlong            ###   ########.fr       */
+/*   Updated: 2021/07/25 14:51:21 by jlong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,19 @@ void	ft_conver_x(unsigned long nbr, t_format *format_len)
 	{
 		ft_conver_x(nbr / 16, format_len);
 		ft_conver_x(nbr % 16, format_len);
+	}
+}
+
+void	ft_conver_X(unsigned long nbr, t_format *format_len)
+{
+	char	*base;
+
+	base = "0123456789ABCDEF";
+	if (nbr <= 15)
+		ft_putchar(nbr[base], format_len);
+	else
+	{
+		ft_conver_X(nbr / 16, format_len);
+		ft_conver_X(nbr % 16, format_len);
 	}
 }

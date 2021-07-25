@@ -6,7 +6,7 @@
 /*   By: jlong <jlong@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 18:37:41 by jlong             #+#    #+#             */
-/*   Updated: 2021/07/22 14:54:34 by jlong            ###   ########.fr       */
+/*   Updated: 2021/07/25 14:39:40 by jlong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,12 @@ void	printf_x(va_list ap, t_format *format_len)
 
 	nbrconv = (unsigned long)va_arg(ap, unsigned int);
 	ft_conver_x(nbrconv, format_len);
+}
+
+void	printf_X(va_list ap, t_format *format_len)
+{
+	unsigned long	nbrconv;
+
+	nbrconv = (unsigned long)va_arg(ap, unsigned int);
+	ft_conver_X(nbrconv, format_len);
 }

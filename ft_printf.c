@@ -6,7 +6,7 @@
 /*   By: jlong <jlong@student.s19.be>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 14:41:44 by jlong             #+#    #+#             */
-/*   Updated: 2021/07/22 15:14:20 by jlong            ###   ########.fr       */
+/*   Updated: 2021/07/25 14:38:04 by jlong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	ft_check_conv(va_list ap, const char *str, t_format *format_len)
 		printf_pointer(ap, format_len);
 	else if (*str == 'x')
 		printf_x(ap, format_len);
+	else if (*str == 'X')
+		printf_X(ap, format_len);
 }
 
 int	ft_readerprintf(va_list ap, const char *format, t_format *format_len)
